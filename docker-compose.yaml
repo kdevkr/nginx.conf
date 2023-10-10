@@ -1,17 +1,17 @@
-version: '3.8'
-services: 
+version: "3.8"
+services:
   nginx:
     image: nginx:1.21.3-alpine
-    ports: 
+    ports:
       - 80:80
       - 443:443
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx-vite.conf:/etc/nginx/nginx.conf
       - ./server.crt:/etc/nginx/server.crt
       - ./server.key:/etc/nginx/server.key
-      - ./static:/etc/nginx/static
+      - ./frontend/dist:/etc/nginx/static
   app:
     image: amazoncorretto:11-alpine
-    command: 'java -jar /etc/app.jar'
+    command: "java -jar /etc/app.jar"
     volumes:
       - ./demo-0.0.1-SNAPSHOT.jar:/etc/app.jar

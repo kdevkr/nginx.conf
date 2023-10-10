@@ -59,3 +59,10 @@ Certificate:
          d1:02:21:00:e7:a1:b4:cb:06:6d:ad:80:d3:89:09:c1:1e:ca:
          6e:c7:2e:14:fd:99:d9:df:44:14:cb:47:39:df:ea:5e:e0:1e
 ```
+
+## Build Vite
+
+```sh
+yarn --cwd 'frontend' install
+yarn --cwd 'frontend' run build --mode production
+```
