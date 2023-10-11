@@ -1,0 +1,26 @@
+spring.application.name: Backend
+
+spring.cache:
+  type: caffeine
+  caffeine.spec: 'maximumSize=500,expireAfterAccess=30m'
+  cache-names:
+    - version
+
+spring.security:
+  user:
+    name: user
+    password: password
+
+server.servlet.session:
+  tracking-modes: cookie
+  persistent: on
+  cookie:
+    path: '/'
+    secure: on
+    http-only: true
+    same-site: strict
+
+management.endpoints.web:
+  exposure.include:
+    - health
+    - info
