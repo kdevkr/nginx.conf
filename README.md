@@ -4,6 +4,7 @@
 - Amazon Corretto 11
 
 ## Features
+
 - HTTPS Redirect
 - Reverse Proxy
 - SSL Termination
@@ -20,6 +21,7 @@ docker compose exec nginx nginx -s reload
 ```
 
 ## SSL Certificate
+
 server.crt is self signed certificate.
 
 ```sh
@@ -60,9 +62,24 @@ Certificate:
          6e:c7:2e:14:fd:99:d9:df:44:14:cb:47:39:df:ea:5e:e0:1e
 ```
 
+### Generate certificate using mkcert
+
+[mkcert.dev](https://mkcert.dev)
+
+```sh
+mkcert -install
+mkcert -key-file server.key -cert-file server.crt localhost 127.0.0.1 mambo.kr
+```
+
 ## Build Vite
 
 ```sh
 yarn --cwd 'frontend' install
 yarn --cwd 'frontend' run build --mode production
+```
+
+## Load Test with k6
+
+```sh
+k6 run script.js
 ```
